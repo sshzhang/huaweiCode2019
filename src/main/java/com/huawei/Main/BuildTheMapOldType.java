@@ -7,21 +7,20 @@ import com.huawei.beans.RoadBean;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * 构建图
  */
-public class BuildTheMap {
+public class BuildTheMapOldType {
 
 
     public static List<CrossBean> crossBeanList = new ArrayList<>();
     public static List<RoadBean> roadBeanList = new ArrayList<>();
     public static List<CarBean> carBeanList = new ArrayList<>();
+    public static int[][] path;
 
     static {
         readCrossBeanList();
@@ -30,10 +29,11 @@ public class BuildTheMap {
         Collections.sort(carBeanList);
     }
 
+
     public static List<CrossBean> readCrossBeanList() {
         String str = null;
         try (//读取其中的road.txt文件
-             InputStream resourceAsStream = BuildTheMap.class.getClassLoader().getResourceAsStream("Cross.txt");
+             InputStream resourceAsStream = BuildTheMapOldType.class.getClassLoader().getResourceAsStream("Cross.txt");
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream))) {
             Pattern compile = Pattern.compile("\\((?<crossId>[0-9]+),[ ]+(?<upRoad>[-]?[0-9]+),[ ]+(?<rigthRoad>[-]?[0-9]+),[ ]+(?<downRoad>[-]?[0-9]+),[ ]+(?<leftRoad>[-]?[0-9]+)\\)");
             while ((str = bufferedReader.readLine()) != null) {
@@ -61,7 +61,7 @@ public class BuildTheMap {
     public static List<RoadBean> readRoadBeanList() {
         String str = null;
         try (//读取其中的road.txt文件
-             InputStream resourceAsStream = BuildTheMap.class.getClassLoader().getResourceAsStream("Road.txt");
+             InputStream resourceAsStream = BuildTheMapOldType.class.getClassLoader().getResourceAsStream("Road.txt");
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream))) {
             Pattern compile = Pattern.compile("\\((?<roadId>[0-9]+),[ ]+(?<roadLength>[0-9]+),[ ]+(?<speedLimit>[0-9]+),[ ]+(?<roadNums>[0-9]+),[ ]+(?<startCross>[0-9]+),[ ]+(?<endCross>[0-9]+),[ ]+(?<isBothWay>[0-9]+)\\)");
             while ((str = bufferedReader.readLine()) != null) {
@@ -90,12 +90,11 @@ public class BuildTheMap {
         return roadBeanList;
     }
 
-
     public static List<CarBean> readCarBeanList() {
 
         String str = null;
         try (//读取其中的road.txt文件
-             InputStream resourceAsStream = BuildTheMap.class.getClassLoader().getResourceAsStream("Car.txt");
+             InputStream resourceAsStream = BuildTheMapOldType.class.getClassLoader().getResourceAsStream("Car.txt");
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream))) {
             Pattern compile = Pattern.compile("\\((?<carId>[0-9]+),(?<startCrossId>[0-9]+),(?<endCrossId>[0-9]+),(?<maxSpeed>[0-9]+),(?<time>[0-9]+)\\)");
             while ((str = bufferedReader.readLine()) != null) {
@@ -120,9 +119,8 @@ public class BuildTheMap {
     }
 
 
-    //邻接表
+    //邻接表   修改为十字链表
     static class VertexNode {
-
         int crossId;
         EdgeNode next;
 
@@ -141,60 +139,211 @@ public class BuildTheMap {
             this.roadBean = roadBean;
             this.next = next;
         }
+    }
+
+
+    static class ArcBox {
+
+        //该弧的尾部所在的位置
+        int tailVex; //表示数组中的索引位置
+        //该弧的头部所在位置
+        int headVex;
+
+        //弧头相同的节点
+        ArcBox hlink;
+        //弧尾相同的节点
+        ArcBox tlink;
+        //此条弧的信息
+        RoadBean roadBean;
 
     }
 
-    public static void main(String... args) {
+    static class VexNode{
 
+        int crossId;
+        //指向该顶点的入弧
+        ArcBox firstin;
+        //指向该顶点的出弧
+        ArcBox fitstout;
+    }
+
+
+    public static void main(String... args) {
         System.out.println(carBeanList.size());
         VertexNode[] vertexNodes = BuildTheVertecNodesMap();
-        System.out.println(vertexNodes);
+        path = new int[vertexNodes.length][vertexNodes.length];
 
-        int[] dp = new int[vertexNodes.length];
-        ShortestPath_DJSTR(vertexNodes, 1, dp);
-        System.out.println(dp);
+       /* for (int i = 0; i < carBeanList.size(); i++) {
+            CarBean carBean = carBeanList.get(i);
+            int startBean = carBean.startBean;
+            if (path[startBean][0] == 1) continue;
+            ShortestPath_DJSTR(vertexNodes, startBean, path);
+        }*/
 
+        ShortestPath_DJSTR(vertexNodes, 1, path);
+        System.out.println(path);
     }
 
     /**
      * 对于每辆车判断可能的路径
      */
-    private static void ArrangeTheCar(VertexNode verTexNodes[]) {
+  /*  private static void ArrangeTheCar(VertexNode verTexNodes[]) {
         //最短路径算法 求所有点之间的最短路径
 
         //当前调度时刻
         int time = 0;
 
         while (isAllFinish()) {//依然有车量在运行
+
             time++;
-            for (int k = 0; k < carBeanList.size(); k++) {
-                CarBean carBean = carBeanList.get(k);
-                //车没有调度完成
-                if (!carBean.isFinish) {
-                    //车在运行
-                    if (carBean.isStart) {
 
-                    } else {
-                        //开始调度
-                        if (carBean.startTime <= time) {
-                            //计算此时最佳的路线
-                            int[] dp = new int[verTexNodes.length];
-                            int[][] path = ShortestPath_DJSTR(verTexNodes, carBean.startBean, dp);
+            //扫描道路中的每一条车道
+            for (int i = 0; i < roadBeanList.size(); i++) {//总共的道路数
+                //扫描所有的车道
+                RoadBean roadBean = roadBeanList.get(i);
+                LinkedList<CarBean>[] carBeanQueues = roadBean.carBeanQueues;
 
 
+                //运行车辆并标注车的状态
+                for (LinkedList<CarBean> carBeans : carBeanQueues) {
+                    //每一个车道中所有车辆信息
+                    for (int index = carBeans.size() - 1; index >= 0; index--) {
+
+                        CarBean carBean = carBeans.get(index);
+                        //carBean 后一辆车
+                        CarBean preBean = index == carBeans.size() - 1 ? null : carBeans.get(index + 1);
+
+                        //之前车辆的速度
+                        int preCarMaxSpeed = index == carBeans.size() - 1 ? roadBean.speedLimit : preBean.currSpeed;
+                        //求出当前车的速度
+                        carBean.currSpeed = Math.min(Math.min(roadBean.speedLimit, carBean.maxSpeed), preCarMaxSpeed);
+                        //当前车距离上一辆车的距离    如果当前车没有上一辆车  直接是到尽头的距离
+                        int distance = index == carBeans.size() - 1 ? carBean.s1 : carBean.s1 - preBean.s1 - 1;
+
+                        if (carBean.currSpeed > distance) {//等待转弯调度
+                            if (index == carBeans.size() - 1) {//当前车是最前车
+                                carBean.isWaiting = true;
+                            } else {
+                                //如果当前车的前一辆车是等待状态
+                                if (preBean.isWaiting) {
+                                    carBean.isWaiting = true;
+                                } else {//如果当前车的上一辆车已经终止
+                                    //在上一辆车终止的前一个位置
+                                    carBean.s1 = preBean.s1 + 1;
+                                    carBean.isWaiting = false;
+                                }
+                            }
+
+                        } else {//直接终止状态 不需要转弯
+
+                            carBean.s1 += carBean.currSpeed;
+                            carBean.isWaiting = false;
                         }
                     }
                 }
             }
+
+
+            //调度等待车辆  按照路口ID升序
+
+            while (isAllNormalStopStatus()) {
+                for (int i = 1; i < verTexNodes.length; i++) {
+//                    verTexNodes[i]
+                }
+
+
+            }
+
+            //启动每一个未开启的车辆
+            for (int k = 0; k < carBeanList.size(); k++) {
+                CarBean carBeanr = carBeanList.get(k);
+                //车没有调度完成
+                if (!carBeanr.isFinish && !carBeanr.isStart) {
+
+                    //调度没有运行的车辆
+                    CarBean carBeanNotRunning = carBeanList.get(k);
+                    //没有到调度时间
+                    if (carBeanNotRunning.startTime < time) continue;
+                    //到达调度时间
+                    ShortestPath_DJSTR(verTexNodes, carBeanNotRunning.startBean, path);
+                    //可能到达的第一个地点
+                    int dest = path[carBeanNotRunning.startBean][1];
+                    for (EdgeNode p = verTexNodes[carBeanNotRunning.startBean].next; p != null; p = p.next) {
+                        //找到相应的路径信息
+                        if (p.roadBean.endCross == dest) {
+
+                            LinkedList<CarBean>[] carBeanQueues = p.roadBean.carBeanQueues;
+                            //道路是否允许车通过
+                            for (int q = 0; q < carBeanQueues.length; q++) {
+
+                                //道路中的每一条车道
+                                LinkedList<CarBean> carBeanQueue = carBeanQueues[q];
+                                //双端队列
+
+                                //没有车  开启当前车辆
+                                if (carBeanQueue.size() == 0) {
+                                    carBeanNotRunning.isStart = true;
+                                    carBeanNotRunning.currentRoadBean = p.roadBean;
+                                    carBeanNotRunning.startBean = time;
+                                    //默认开启车辆的位置为1
+                                    carBeanNotRunning.s1 = p.roadBean.roadLength - 1;
+                                    //此刻的初始值没有用到
+                                    carBeanNotRunning.currSpeed = Math.min(carBeanNotRunning.maxSpeed, p.roadBean.speedLimit);
+
+                                    carBeanQueue.add(carBeanNotRunning);
+
+                                    break;//直接跳出循环
+                                } else {  //有车
+
+                                    //当前道路最后一辆车
+                                    CarBean carBean = carBeanQueue.peekLast();
+                                    if (carBean.s1 == p.roadBean.roadLength - 1) {
+                                        continue;
+                                    } else {//此处不存在车辆阻止当前车辆启动
+                                        carBeanNotRunning.isStart = true;
+                                        carBeanNotRunning.currentRoadBean = p.roadBean;
+                                        //默认开启车辆的位置为1
+                                        carBeanNotRunning.s1 = p.roadBean.roadLength - 1;
+                                        carBeanNotRunning.startBean = time;
+                                        //当前车速 最小值  没有用到
+                                        carBeanNotRunning.currSpeed = Math.min(carBeanNotRunning.maxSpeed, p.roadBean.speedLimit);
+                                        carBeanQueue.add(carBeanNotRunning);
+                                        break;
+
+                                    }
+                                }
+                            }
+
+                            if (carBeanNotRunning.isStart) break;
+                        }
+
+                    }
+
+                }
+            }
+
+
         }
+
+    }*/
+
+    //一个时间片运行完成
+    private static boolean isAllNormalStopStatus() {
+
+        for (int i = 0; i < carBeanList.size(); i++) {
+            if (carBeanList.get(i).isWaiting) {
+
+                return false;
+            }
+        }
+        return true;
     }
 
-
     //verTexId表示某个节点的crossId  verTexI　此函数需要数组的id和 crossId对应
-    public static int[][] ShortestPath_DJSTR(VertexNode verTexNodes[], int verTexId, int d[]) {
+    public static void ShortestPath_DJSTR(VertexNode verTexNodes[], int verTexId, int path[][]) {
 
-//        int d[] = new int[verTexNodes.length];
-        int path[][] = new int[verTexNodes.length][verTexNodes.length];
+//        int path[][] = new int[verTexNodes.length][verTexNodes.length];
+        int d[] = new int[verTexNodes.length];
 
         for (int i = 1; i < d.length; i++) {
             d[i] = Integer.MAX_VALUE;
@@ -232,7 +381,7 @@ public class BuildTheMap {
                 }
             }
 
-            if (min == Integer.MAX_VALUE) return path;
+            if (min == Integer.MAX_VALUE) return ;
 
             path[k][0] = 1;
             EdgeNode p = verTexNodes[k].next;
@@ -253,11 +402,15 @@ public class BuildTheMap {
             }
         }
 
-        return path;
+        return;
 
     }
 
-
+    /**
+     * 车辆是否调度完成
+     *
+     * @return
+     */
     private static boolean isAllFinish() {
 
         for (int i = 0; i < carBeanList.size(); i++) {
@@ -270,8 +423,7 @@ public class BuildTheMap {
         return true;
     }
 
-
-    //调度所有点
+    //构建调度地图
     private static VertexNode[] BuildTheVertecNodesMap() {
         VertexNode[] vertexNodes = new VertexNode[crossBeanList.size() + 1];
 
@@ -321,6 +473,7 @@ public class BuildTheMap {
         }
         return vertexNodes;
     }
+
 
     public static RoadBean findRoadBean(int RoadId, int startCrossId) {
 

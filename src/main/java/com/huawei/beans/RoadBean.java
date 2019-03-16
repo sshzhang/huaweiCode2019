@@ -1,5 +1,6 @@
 package com.huawei.beans;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -29,7 +30,7 @@ public class RoadBean {
     public int isBothWay;
 
 
-    public Queue<CarBean>[] carBeanQueues;
+    public LinkedList<CarBean>[] carBeanQueues;
 
 
     public RoadBean(int roadId, int roadLength, int speedLimit, int roadNums, int  startCross, int  endCross, int isBothWay) {
@@ -40,15 +41,11 @@ public class RoadBean {
         this.startCross = startCross;
         this.endCross = endCross;
         this.isBothWay = isBothWay;
-        carBeanQueues = new Queue[roadNums];
+        carBeanQueues = new LinkedList[roadNums];
     }
 
     public static void main(String... args) {
 
 
-        Queue<String>[] queues = new Queue[2];
-        queues[1] = new ArrayBlockingQueue<String>(12);
-        queues[1].add("12");
-        System.out.println(queues[1].poll());
     }
 }
