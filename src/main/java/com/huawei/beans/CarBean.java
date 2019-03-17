@@ -30,8 +30,18 @@ public class CarBean implements Comparable<CarBean> {
     public int currSpeed;
     //访问的地址回溯
     public int[] preVisted;
-    //转弯时候的方向  0 1 2 3
-    public int direction = -1;
+
+    //方向 0 初始启动时刻    1  2  3  分别表示直行 左转 右转
+    public int[] direction;
+
+    //访问过得道路id
+    public int[] visitedEdge;
+
+
+    //指向相应的方向数组索引 默认为0
+    public int index;
+
+
 
 
     public CarBean(int carId, int startBean, int endBean, int maxSpeed, int startTime, boolean isStart, int crossLength) {
@@ -42,6 +52,9 @@ public class CarBean implements Comparable<CarBean> {
         this.startTime = startTime;
         this.isStart = isStart;
         preVisted = new int[crossLength];
+        visitedEdge = new int[crossLength - 1];
+        direction = new int[crossLength - 2];
+
     }
 
     @Override

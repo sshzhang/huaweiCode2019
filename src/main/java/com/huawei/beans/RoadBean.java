@@ -30,6 +30,11 @@ public class RoadBean {
     public int isBothWay;
 
 
+    //指向当前队列指针
+    public int index = 0;
+
+
+
     public LinkedList<CarBean>[] carBeanQueues;
 
 
@@ -42,10 +47,5 @@ public class RoadBean {
         this.endCross = endCross;
         this.isBothWay = isBothWay;
         carBeanQueues = new LinkedList[roadNums];
-    }
-
-    public static void main(String... args) {
-
-
     }
 }
