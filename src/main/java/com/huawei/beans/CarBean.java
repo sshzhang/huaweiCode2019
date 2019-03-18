@@ -16,8 +16,6 @@ public class CarBean implements Comparable<CarBean> {
     // true 表示在等待  false表示正常结束
     public boolean isWaiting;
 
-    // true 表示当前正常结束
-//    public boolean isCurrentNormalStop;
 
     //true表示最终完成
     public boolean isFinish;

@@ -108,7 +108,7 @@ public class BuildTheMapOldType {
                         int endCrossId = Integer.parseInt(matcher.group("endCrossId"));
                         int maxSpeed = Integer.parseInt(matcher.group("maxSpeed"));
                         int time = Integer.parseInt(matcher.group("time"));
-                        carBeanList.add(new CarBean(carId, startCrossId, endCrossId, maxSpeed, time, false));
+//                        carBeanList.add(new CarBean(carId, startCrossId, endCrossId, maxSpeed, time, false));
                     }
                 }
             }
