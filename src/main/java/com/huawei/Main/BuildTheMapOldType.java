@@ -13,7 +13,17 @@ import java.util.regex.Pattern;
 
 /**
  * 构建图
+ * <p>
+ * 对于每辆车判断可能的路径
+ * <p>
+ * 车辆是否调度完成
+ *
+ * @return 对于每辆车判断可能的路径
+ * <p>
+ * 车辆是否调度完成
+ * @return
  */
+/*
 public class BuildTheMapOldType {
 
 
@@ -173,21 +183,30 @@ public class BuildTheMapOldType {
         VertexNode[] vertexNodes = BuildTheVertecNodesMap();
         path = new int[vertexNodes.length][vertexNodes.length];
 
-       /* for (int i = 0; i < carBeanList.size(); i++) {
+       */
+/* for (int i = 0; i < carBeanList.size(); i++) {
             CarBean carBean = carBeanList.get(i);
             int startBean = carBean.startBean;
             if (path[startBean][0] == 1) continue;
             ShortestPath_DJSTR(vertexNodes, startBean, path);
-        }*/
+        }*//*
+*/
+/*
 
         ShortestPath_DJSTR(vertexNodes, 1, path);
         System.out.println(path);
     }
 
-    /**
-     * 对于每辆车判断可能的路径
-     */
-  /*  private static void ArrangeTheCar(VertexNode verTexNodes[]) {
+    *//*
+*/
+/**
+ * 对于每辆车判断可能的路径
+ *//*
+*/
+/*
+ *//*
+*/
+/*  private static void ArrangeTheCar(VertexNode verTexNodes[]) {
         //最短路径算法 求所有点之间的最短路径
 
         //当前调度时刻
@@ -325,7 +344,9 @@ public class BuildTheMapOldType {
 
         }
 
-    }*/
+    }*//*
+*/
+/*
 
     //一个时间片运行完成
     private static boolean isAllNormalStopStatus() {
@@ -406,11 +427,15 @@ public class BuildTheMapOldType {
 
     }
 
-    /**
-     * 车辆是否调度完成
-     *
-     * @return
-     */
+    *//*
+*/
+/**
+ * 车辆是否调度完成
+ *
+ * @return
+ *//*
+*/
+/*
     private static boolean isAllFinish() {
 
         for (int i = 0; i < carBeanList.size(); i++) {
@@ -485,4 +510,4 @@ public class BuildTheMapOldType {
         }
         return null;
     }
-}
+} */

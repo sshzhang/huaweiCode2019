@@ -1,8 +1,6 @@
 package com.huawei.beans;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 路径bean
@@ -28,6 +26,7 @@ public class RoadBean {
     //是否是双向的数据
     public int isBothWay;
 
+    public boolean visible = true;
 
     //指向当前队列指针
     public int index = 0;
@@ -36,7 +35,7 @@ public class RoadBean {
     public LinkedList<CarBean>[] carBeanQueues;
 
 
-    public RoadBean(int roadId, int roadLength, int speedLimit, int roadNums, int startCross, int endCross, int isBothWay) {
+    public RoadBean(int roadId, int roadLength, int speedLimit, int roadNums, int startCross, int endCross, int isBothWay, boolean visible) {
         this.roadId = roadId;
         this.roadLength = roadLength;
         this.speedLimit = speedLimit;
@@ -44,8 +43,8 @@ public class RoadBean {
         this.startCross = startCross;
         this.endCross = endCross;
         this.isBothWay = isBothWay;
-        carBeanQueues = new LinkedList[roadNums];
-
+        this.visible = visible;
+        this.carBeanQueues = new LinkedList[roadNums];
         for (int i = 0; i < this.roadNums; i++) {
             carBeanQueues[i] = new LinkedList<CarBean>();
         }
@@ -55,18 +54,44 @@ public class RoadBean {
 
     public static void main(String... args) {
 
-        List<Integer> integers = new ArrayList<>();
+      /*  LinkedList<Integer> integers = new LinkedList<>();
         integers.add(12);
         integers.add(23);
         integers.add(34);
 
         for (int i = 0; i < integers.size(); i++) {
-            Integer integer = integers.get(2);
-            integers.remove(integer);
+
+            System.out.println(integers.poll());
             System.out.println(integers.size());
-            break;
+            i--;
+        }*/
+
+        assert 1 != 2;
+
+
+        LinkedList[] links = new LinkedList[5];
+
+        for (int i = 0; i < links.length; i++) {
+            links[i] = new LinkedList<Integer>();
         }
+        links[0].add(1);
+        links[0].add(3);
+
+        Test(links[0]);
+        System.out.println(links);
+
+
+
+
+
 
     }
 
+
+    public static void Test(LinkedList<Integer> params) {
+
+        params.poll();
+
+        params.add(12);
+    }
 }
