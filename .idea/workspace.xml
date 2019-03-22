@@ -2,30 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b651d308-2fcc-4256-a950-f9cf2efd0eb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/Resources/car.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Resources/cross.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Resources/road.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/META-INF/huaweiCode2019.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapNewType$ArcBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapNewType$VexNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapNewType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapOldType$ArcBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapOldType$EdgeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapOldType$VertexNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapOldType$VexNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/BuildTheMapOldType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/CarBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/CarBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/RoadBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/RoadBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapOldType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapOldType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapOldType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CrossBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CrossBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,32 +47,33 @@
     <session id="-193261695">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="36" />
+          <entry key="java" value="45" />
           <entry key="txt" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="36" />
+          <entry key="JAVA" value="45" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="56" />
-          <entry key="java" value="39063" />
+          <entry key="java" value="39072" />
           <entry key="txt" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="39061" />
+          <entry key="JAVA" value="39070" />
           <entry key="PLAIN_TEXT" value="107" />
           <entry key="RegExp" value="2" />
         </counts>
@@ -92,74 +83,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CrossBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="440">
+              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-440">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#LocateVex#0;class#BuildTheMapUtil#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-264">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/lang/StringBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="404" column="18" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Resources/Road.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Resources/road.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+            <state relative-caret-position="770">
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -174,22 +110,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="408" column="22" selection-start-line="408" selection-start-column="22" selection-end-line="408" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="154">
+              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="35" column="28" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="220">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -253,14 +213,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapOldType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java" />
         <option value="$PROJECT_DIR$/src/main/Resources/car.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java" />
       </list>
     </option>
   </component>
@@ -308,6 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -385,7 +348,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -393,7 +355,7 @@
     <property name="SearchEverywhereHistoryKey" value="ClassLoa&#9;PSI&#9;JAVA://com.sun.org.apache.bcel.internal.util.ClassLoader&#10;Queue&#9;FILE&#9;jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/util/Queue.java&#10;SEmaphore&#9;PSI&#9;JAVA://java.util.concurrent.Semaphore" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553139923206" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553149544857" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -401,14 +363,19 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/Resources" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.huawei.Main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/huawei/utils" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/huawei/beans" />
+      <recent name="$PROJECT_DIR$/src/main/Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -517,11 +484,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552112368794</updated>
       <workItem from="1552112372626" duration="251503000" />
+      <workItem from="1553233649139" duration="176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251503000" />
+    <option name="totallyTimeSpent" value="251679000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -541,14 +509,14 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2498618" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25262576" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32984293" />
       <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.43979058" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4670157" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32984293" />
@@ -607,52 +575,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java</url>
-          <line>155</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java</url>
-          <line>397</line>
-          <properties />
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java</url>
-          <line>1004</line>
-          <properties />
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java</url>
-          <line>80</line>
-          <properties />
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java</url>
-          <line>1104</line>
-          <properties />
-          <option name="timeStamp" value="304" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java</url>
-          <line>187</line>
-          <properties />
-          <option name="timeStamp" value="313" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java</url>
-          <line>183</line>
-          <properties />
-          <option name="timeStamp" value="314" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="path[LocateVex(verTexNodes, carBeanNotRunning.endBean)][0]" language="JAVA" />
@@ -751,20 +673,8 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/huawei/beans/bean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/huawei/beans/bean.java" />
     <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/io/Reader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -786,13 +696,7 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/NeighborHoodTableStruct.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/NeighborHoodTableStruct.java" />
     <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/util/concurrent/BlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -839,13 +743,6 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CrossBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -870,17 +767,6 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding>
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapOldType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
@@ -888,13 +774,6 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -911,10 +790,17 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/Constant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Resources/car.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="217">
+          <caret line="167" column="21" lean-forward="true" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/lang/StringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8074">
+          <caret line="404" column="18" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -927,77 +813,98 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Resources/road.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="616">
           <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Resources/car.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="167" column="21" lean-forward="true" selection-start-line="167" selection-start-column="21" selection-end-line="167" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/BuildTheMapNewType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="408" column="22" selection-start-line="408" selection-start-column="22" selection-end-line="408" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/lang/StringBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="404" column="18" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="8646">
+          <caret line="393" column="22" selection-start-line="393" selection-start-column="22" selection-end-line="393" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/ArrangeTheCarForEnd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="506">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#44749#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/BuildTheMapUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        <state relative-caret-position="440">
+          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#LocateVex#0;class#BuildTheMapUtil#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1070">
+          <caret line="96" column="52" lean-forward="true" selection-start-line="96" selection-start-column="52" selection-end-line="96" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/CrossBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/RoadBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/VexNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/beans/ArcBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ReaddingTheData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
         </state>
       </provider>
     </entry>

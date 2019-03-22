@@ -36,6 +36,12 @@ public class CarBean implements Comparable<CarBean> {
     public int[] visitedEdge;
 
 
+    //已经设置过方向就不需要重新设置方向
+    //此字段需要实时更新
+    public boolean isSetDirection = false;
+
+
+
     //指向相应的方向数组索引 默认为0
     public int index=0;
 
@@ -47,7 +53,7 @@ public class CarBean implements Comparable<CarBean> {
         this.maxSpeed = maxSpeed;
         this.startTime = startTime;
         this.isStart = isStart;
-        visitedEdge = new int[crossLength - 1];
+        visitedEdge = new int[crossLength];
     }
 
     @Override

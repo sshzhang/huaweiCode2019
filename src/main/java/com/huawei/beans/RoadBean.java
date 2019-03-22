@@ -51,47 +51,4 @@ public class RoadBean {
 
     }
 
-
-    public static void main(String... args) {
-
-      /*  LinkedList<Integer> integers = new LinkedList<>();
-        integers.add(12);
-        integers.add(23);
-        integers.add(34);
-
-        for (int i = 0; i < integers.size(); i++) {
-
-            System.out.println(integers.poll());
-            System.out.println(integers.size());
-            i--;
-        }*/
-
-        assert 1 != 2;
-
-
-        LinkedList[] links = new LinkedList[5];
-
-        for (int i = 0; i < links.length; i++) {
-            links[i] = new LinkedList<Integer>();
-        }
-        links[0].add(1);
-        links[0].add(3);
-
-        Test(links[0]);
-        System.out.println(links);
-
-
-
-
-
-
-    }
-
-
-    public static void Test(LinkedList<Integer> params) {
-
-        params.poll();
-
-        params.add(12);
-    }
 }
