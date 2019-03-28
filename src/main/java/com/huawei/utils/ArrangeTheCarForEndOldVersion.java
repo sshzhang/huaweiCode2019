@@ -1,4 +1,3 @@
-
 package com.huawei.utils;
 
 import com.huawei.beans.*;
@@ -13,7 +12,7 @@ import java.util.List;
 /**
  * 车辆调度类
  */
-public class ArrangeTheCarForEnd {
+public class ArrangeTheCarForEndOldVersion {
 
 
     private static int count = 0;
@@ -26,9 +25,9 @@ public class ArrangeTheCarForEnd {
     public static void ArrangeTheCar(List<CrossBean> crossBeanList, List<RoadBean> roadBeanList, List<CarBean> carBeanList, String answerPath) {
 
 
-        ArrangeTheCarForEnd.crossBeanList = crossBeanList;
-        ArrangeTheCarForEnd.roadBeanList = roadBeanList;
-        ArrangeTheCarForEnd.carBeanList = carBeanList;
+        ArrangeTheCarForEndOldVersion.crossBeanList = crossBeanList;
+        ArrangeTheCarForEndOldVersion.roadBeanList = roadBeanList;
+        ArrangeTheCarForEndOldVersion.carBeanList = carBeanList;
         BuildTheVertecNodesMap();
         int time = 0;
 
@@ -50,8 +49,8 @@ public class ArrangeTheCarForEnd {
 
         try {
             bufferedWriter = new BufferedWriter(new FileWriter(answerPath));
-            for (int i = 0; i < ArrangeTheCarForEnd.carBeanList.size(); i++) {
-                CarBean carBean = ArrangeTheCarForEnd.carBeanList.get(i);
+            for (int i = 0; i < ArrangeTheCarForEndOldVersion.carBeanList.size(); i++) {
+                CarBean carBean = ArrangeTheCarForEndOldVersion.carBeanList.get(i);
                 StringBuilder builder = new StringBuilder();
                 builder.append("(" + carBean.carId + ", " + carBean.startTime);
                 for (int index = 0; index < carBean.index; index++) {
@@ -163,7 +162,7 @@ public class ArrangeTheCarForEnd {
             CarBean carBeanr = carBeanList.get(k);
             //车没有调度完成  限制当前最多存在500辆车
 
-            if (count >= 950) break;
+            if (count >= 1180) break;
 
             if (!carBeanr.isFinish && !carBeanr.isStart) {
 
@@ -243,9 +242,9 @@ public class ArrangeTheCarForEnd {
     private static void RunTheWaitingCar() {
         //调度等待车辆
         while (!isAllNormalStopStatus()) {
-            //按照路口id降序 扫描所有路口
+            //按照路口id升序扫描所有路口
             for (int i = 0; i < Graph.length; i++) {
-                //路口对应的出口道路 按照道路id降序扫描
+                //路口对应的出口道路 按照道路id升序扫描
                 for (ArcBox p = Graph[i].firstin; p != null; p = p.hlink) {
                     RoadBean roadBean = p.roadBean;
                     LinkedList<CarBean>[] carBeanQueues = roadBean.carBeanQueues;
@@ -263,6 +262,8 @@ public class ArrangeTheCarForEnd {
                         if (!peek.isWaiting) {//下一个车道调度
                             index += 1;
                             continue;
+                        } else {
+                            index = 0;
                         }
                         /**
                          * 运行等待的车辆分为三步
@@ -271,30 +272,33 @@ public class ArrangeTheCarForEnd {
                          *        b)没有设置过方向 按照当前道路情况设置方向,
                          *                            b.1)如果设置的方向不可通行，  按照没有考虑实际情况的最短路径规划方向
                          *                            b.2)如果设置的方向可行, 继续处理
+                         *
                          */
+
 
                         //如果当前车已经设置方向,就不存在设置方向这一说,直接按照之前规划的方向运行
                         if (peek.isSetDirection) {//设置过方向, 说明车辆当前不可能使向最终的目的地
+
+
+                            if (peek.endBean == roadBean.endCross) throw new RuntimeException("当前方向数据异常");
+
                             //当前车需要走的下一个道路id
                             int roadId = peek.visitedEdge[peek.index - 1];
                             //当前车辆所在道路的结束路口
                             int endCross = roadBean.endCross;
+
                             RoadBean nextRoadBean = null;
                             for (ArcBox q = Graph[LocateVex(endCross)].firstout; q != null; q = q.tlink) {
+
                                 if (q.roadBean.roadId == roadId) {
                                     nextRoadBean = q.roadBean;
                                     break;
                                 }
                             }
 
-                            //TODO 如果已经设置过方向  直接比较入口是否允许通行，如果可以的话再比较是否存在阻挡
-
-
-
                             if (nextRoadBean == null) throw new RuntimeException("内部数据格式异常");
+
                             //直行、左转、右转
-                            //不存在到达终点的情况
-                            if (peek.endBean == roadBean.endCross) throw new RuntimeException("数据格式异常");
 
                             //判断当前车的转弯方向
                             //roadBean.startCross---->roadBean.endCross---->nextRoadBean.endCross;
@@ -304,12 +308,15 @@ public class ArrangeTheCarForEnd {
                             //直行
                             if (direction == Constant.STRAIGHT) {
 
-                                if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
+                            /*    if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
                                     index++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
                                     continue;
                                 } else {
                                     break;
-                                }
+                                }*/
+                                //没有产生冲突
+                                waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean);
+                                index = (index + 1) % roadBean.roadLength;
 
                             } else if (direction == Constant.LEFT) {
 
@@ -328,12 +335,14 @@ public class ArrangeTheCarForEnd {
                                     break;//调度不成功  直接调度下一个道路
                                 }
 
-                                if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
+                          /*      if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
                                     index++;
                                     continue;
                                 } else {
                                     break;
-                                }
+                                }*/
+                                waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean);
+                                index = (index + 1) % roadBean.roadLength;
                             } else if (direction == Constant.RIGHT) {
 
                                 RoadBean strRoadBean = null;
@@ -361,22 +370,32 @@ public class ArrangeTheCarForEnd {
                                     //continue;
                                     break;//调度不成功  直接调度下一个道路
                                 }
-                                if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
+                              /*  if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
+
                                     index++;
                                     continue;
                                 } else {
                                     break;
-                                }
+                                }*/
+
+                                //没有产生冲突
+                                waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean);
+                                index = (index + 1) % roadBean.roadLength;
+
                             } else {
                                 throw new RuntimeException("方向数据异常");
                             }
 
                         } else {//如果当前车没有设置方向
+
                             //如果当前车到达目的地
                             if (peek.endBean == roadBean.endCross) {
+
                                 //判断是跳转到下一个车道还是其它道路
                                 boolean isbreak = false;
+
                                 //判断速度是否满足情况
+
                                 int speed = Math.min(peek.maxSpeed, roadBean.speedLimit);
                                 if (speed >= peek.s1) {//当前能进入
                                     //完成
@@ -387,6 +406,7 @@ public class ArrangeTheCarForEnd {
                                     peek.visitedEdge[peek.index] = -1;
                                     //调整此条车道后续的车辆
                                     for (int k = 0; k < carBeanQueue.size(); k++) {
+
                                         CarBean carBean = carBeanQueue.get(k);
                                         //当前是第一辆且最终的目的地就是此地
                                         if (k == 0 && carBean.endBean == roadBean.endCross) {
@@ -406,7 +426,9 @@ public class ArrangeTheCarForEnd {
                                                 //index++;
                                                 break;
                                             }
+
                                         } else {
+
                                             if (k == 0) {//没有到目的点
                                                 speed = Math.min(carBean.maxSpeed, roadBean.speedLimit);
                                                 if (speed <= carBean.s1) {
@@ -420,6 +442,7 @@ public class ArrangeTheCarForEnd {
                                             }
                                         }
                                     }
+
                                 } else {//可能进入
                                     isbreak = true;
                                     peek.isWaiting = false;
@@ -432,17 +455,9 @@ public class ArrangeTheCarForEnd {
                                     index++;
                                     continue;
                                 }
+
                             } else {//当前车不是目的地  没设置过方向
-                                //TODO 尽量避免死锁
-                                /**
-                                 * 策略
-                                 * 先判断当前方向下 车能不能通过路口
-                                 * 如果不能通过路口
-                                 *        1)  如果当前方向等待的次数超过5次, 直接设置当前方向不可通行，另选择其它方向
-                                 *        2)没有超过固定次数继续等待轮训 ,如果方向不一致需要重置计数功能
-                                 * 如果能够通过入口
-                                 *         //设置方向  准备调度
-                                 */
+
                                 int startCrossIndex = -1;
                                 int nstartCrossIndex = -1;
                                 int endCrossIndex = -1;
@@ -452,27 +467,33 @@ public class ArrangeTheCarForEnd {
                                 int[] visited = new int[Graph.length];
                                 //LocateVex(peek.endBean) 表示从peek.currentRoadBean.endCross==roadBean.endCross到其它节点的距离
                                 ShortestPath_DJSTR(LocateVex(roadBean.startCross), LocateVex(roadBean.endCross), path, visited);
+
                                 //不存在最短路径
                                 if (visited[LocateVex(peek.endBean)] == 0) {
                                     path = new int[Graph.length][Graph.length];
                                     visited = new int[Graph.length];
-                                    //System.out.println("产生异常数据!");
                                     ShortestPath_DJSTRAbSolute(LocateVex(roadBean.startCross), LocateVex(roadBean.endCross), path, visited);
                                     if (visited[LocateVex(peek.endBean)] == 0) throw new RuntimeException("数据格式异常");
                                     startCrossIndex = LocateVex(roadBean.startCross);
                                     nstartCrossIndex = LocateVex(roadBean.endCross);
                                     endCrossIndex = path[LocateVex(peek.endBean)][1];
 
-
                                 } else {//存在最短路径
+
                                     startCrossIndex = LocateVex(roadBean.startCross);
                                     nstartCrossIndex = LocateVex(roadBean.endCross);
                                     endCrossIndex = path[LocateVex(peek.endBean)][1];
                                 }
+
+
                                 if (startCrossIndex == -1 || nstartCrossIndex == -1 || endCrossIndex == -1)
                                     throw new RuntimeException("数据异常");
+
+
                                 //首先判断是否能转入道路
-                                //roadBean   endCrossIndex
+
+
+                                peek.isSetDirection = true;
                                 RoadBean nextRoad = null;
                                 for (ArcBox k = Graph[nstartCrossIndex].firstout; k != null; k = k.tlink) {
                                     if (LocateVex(k.roadBean.endCross) == endCrossIndex) {
@@ -481,27 +502,27 @@ public class ArrangeTheCarForEnd {
                                     }
                                 }
                                 if (nextRoad == null) throw new RuntimeException("数据异常");
-
-                                //TODO peek当前车量   roadBean当前车辆所在的道路  nextRoad当前车辆要转向到的道路
-
-                                // TODO 目前判断当前车存在允许通行的路径
-
-                                //设置方向为true
-                                peek.isSetDirection = true;
                                 peek.visitedEdge[peek.index++] = nextRoad.roadId;
                                 //判断转向及调度
+
+
                                 int direction = FindTheDirection(startCrossIndex, nstartCrossIndex, endCrossIndex);
+
                                 //直行
                                 if (direction == Constant.STRAIGHT) {
 
-                                    if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
+                                    /*if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
                                         index++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
                                         continue;
                                     } else {
                                         break;
-                                    }
+                                    }*/
+
+                                    waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad);
+                                    index = (index + 1) % roadBean.roadLength;
 
                                 } else if (direction == Constant.LEFT) {
+
                                     //直行道路
                                     RoadBean strRoadBean = null;
                                     int newDirection = p.headDirection - 1 < 0 ? (4 + p.headDirection - 1) % 4 : (p.headDirection - 1) % 4;
@@ -517,12 +538,16 @@ public class ArrangeTheCarForEnd {
                                         break;//调度不成功  直接调度下一个道路
                                     }
 
-                                    if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
+                                    /*if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
                                         index++;
                                         continue;
                                     } else {
                                         break;
-                                    }
+                                    }*/
+
+
+                                    waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad);
+                                    index = (index + 1) % roadBean.roadLength;
 
 
                                 } else if (direction == Constant.RIGHT) {
@@ -553,21 +578,19 @@ public class ArrangeTheCarForEnd {
                                         //continue;
                                         break;//调度不成功  直接调度下一个道路
                                     }
-                                    if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
-
+                                    /*if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
                                         index++;
                                         continue;
                                     } else {
                                         break;
-                                    }
-
+                                    }*/
+                                    waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad);
+                                    index = (index + 1) % roadBean.roadLength;
                                 } else {
                                     throw new RuntimeException("方向数据异常");
                                 }
-
                             }
                         }
-
                     }
                 }
             }
@@ -597,7 +620,6 @@ public class ArrangeTheCarForEnd {
      * @param direction   当前道路是否存在direction方向上的等待转弯车辆
      * @return false 表示不存在堵住的情况    true表示存在堵住
      */
-
     private static boolean BlockingFlages(RoadBean strRoadBean, int direction) {
 
         LinkedList<CarBean>[] carBeanQueues = strRoadBean.carBeanQueues;
@@ -610,11 +632,11 @@ public class ArrangeTheCarForEnd {
             } else {//车道上的数据不为空
                 CarBean peek = carBeanQueue.peek();
                 if (!peek.isWaiting) continue;
-
                 /**
                  * 两种情况当前车已经设置过方向 直接取
                  * 没设置过方向， 先设置 再判断
                  */
+
                 //当前这辆车到达了目的地 不会转方向
                 if (strRoadBean.endCross == peek.endBean) return false;
 
@@ -757,7 +779,6 @@ public class ArrangeTheCarForEnd {
      * @param nextRoad
      * @return
      */
-
     private static boolean waitingCarChangeDirection(RoadBean roadBean, LinkedList<CarBean> carBeanQueue, CarBean carBean, RoadBean nextRoad) {
 
         //System.out.println(carBean.carId + "   " + carBean.startBean + "    " + carBean.endBean + " " + carBean.currentRoadBean.roadId + "  ");
@@ -786,6 +807,7 @@ public class ArrangeTheCarForEnd {
                     StopTheMougeRoad(roadBean, carBeanQueue, carBean);
 
                 } else {
+
                     carBean.isWaiting = false;
                     //查找当前道路的下一条车道
                     isSuccess = true;
@@ -794,7 +816,6 @@ public class ArrangeTheCarForEnd {
                     if (carBean.isSetDirection) {//不需要再重新设置
                     } else {
                         carBean.visitedEdge[carBean.index++] = nextRoad.roadId;
-                        throw new RuntimeException("数据格式异常");
                     }
                     carBean.isSetDirection = false;
                     //s2最大运行的距离
@@ -812,8 +833,9 @@ public class ArrangeTheCarForEnd {
                 break;
             }
 
-            //没有任何实际的作用,只是为了检测异常逻辑
+
             if (carBeanNext.s1 > nextRoad.roadLength - 1) throw new RuntimeException("车辆数据长度异常");
+
 
             //当前车辆的转弯方向有车在等待
             if (carBeanNext.isWaiting) {
@@ -824,25 +846,23 @@ public class ArrangeTheCarForEnd {
                     StopTheMougeRoad(roadBean, carBeanQueue, carBean);
 
                 } else {//可能会通过
-                    //TODO update 判断速度是否大于 距离    我把  v2 修改为 nextRoad.roadLength  其它没变  我觉得这里肯定有问题
-                    s2 = nextRoad.roadLength - carBeanNext.s1 - 1;
+                    //判断速度是否大于 距离
+                    s2 = v2 - carBeanNext.s1 - 1;
                     //不能通过 由于当前转入的方向存在一个等待状态的车辆
-                    if (v2 - carBean.s1 > s2) {//说明受前方道路的影响,出现等待状态
-                        //carBean.isWaiting = true;
-                        //StopTheMougeRoad(roadBean, carBeanQueue, carBean);
-                        //此处存在逻辑错误, 本来就不能通过， 这条路也就不用判断
+                    if (v2 - carBean.s1 > s2) {
+                        carBean.isWaiting = false;
+                        StopTheMougeRoad(roadBean, carBeanQueue, carBean);
                     } else {//可以转入
 
                         carBean.isWaiting = false;
                         //查找当前道路的下一条车道
                         isSuccess = true;
 
-                        //如果已经设置过方向  不存在没有设置方向一说
-                        if (carBean.isSetDirection) {
+                        //如果已经设置过方向
+                        if (carBean.isSetDirection) {//不需要再重新设置
 
                         } else {
                             carBean.visitedEdge[carBean.index++] = nextRoad.roadId;
-                            throw new RuntimeException("数据格式异常");
                         }
 
                         carBean.isSetDirection = false;
@@ -886,12 +906,10 @@ public class ArrangeTheCarForEnd {
 
                         } else {
                             carBean.visitedEdge[carBean.index++] = nextRoad.roadId;
-
-                            throw new RuntimeException("数据格式异常");
-
                         }
                         carBean.isSetDirection = false;
 
+                        //carBean.visitedEdge[carBean.index++] = nextRoad.roadId;
                         //s2最大运行的距离
                         int maxS2 = v2 - s1;
                         //默认只能通过一个道路 数据为正
@@ -953,7 +971,6 @@ public class ArrangeTheCarForEnd {
         return isSuccess;
     }
 
-
     /**
      * 停止某条车道上的所有车辆
      *
@@ -961,7 +978,6 @@ public class ArrangeTheCarForEnd {
      * @param carBeanQueue
      * @param carBean
      */
-
     private static void StopTheMougeRoad(RoadBean roadBean, LinkedList<CarBean> carBeanQueue, CarBean carBean) {
         carBean.isWaiting = false;
         for (int k = 1; k <= carBeanQueue.size() - 1; k++) {
@@ -1031,12 +1047,10 @@ public class ArrangeTheCarForEnd {
      * @param path     路径数据
      * @param visited  是否存在最短路径
      */
-
     public static void ShortestPath_DJSTR(int preVerTexId, int verTexId, int path[][], int[] visited) {
 
 
         //设置 preVerTexId--->verTexId 为空
-
 
         //设置当前道路的反向道路不可用 不允许调头
         if (preVerTexId != -1)
@@ -1106,13 +1120,11 @@ public class ArrangeTheCarForEnd {
                     continue;
                 }
 
-
-/*  if (roadBean.isBothWay == 1) {
+              /*  if (roadBean.isBothWay == 1) {
                     preRoadBean = FindThePositiveRoad(roadBean);
                 } else {
                     preRoadBean = null;
                 }*/
-
 
                 int loc = LocateVex(roadBean.endCross);
                 if (visited[loc] == 0 && d[loc] > d[k] + roadBean.roadLength) {
@@ -1167,7 +1179,6 @@ public class ArrangeTheCarForEnd {
             RoadBean roadBean = next.roadBean;
             int loc = LocateVex(roadBean.endCross);
             d[loc] = roadBean.roadLength;
-            //d[loc] = Graph[loc].crossBusiness;
             //保留路径信息
             path[loc][0] = verTexId;
             path[loc][1] = loc;
@@ -1200,14 +1211,15 @@ public class ArrangeTheCarForEnd {
             ArcBox p = Graph[k].firstout;
             while (p != null) {//&& (preRoadBean == null || preRoadBean.roadId != p.roadBean.roadId)
                 RoadBean roadBean = p.roadBean;
+
                 if (novisibleRoadId != -1 && LocateVex(roadBean.startCross) == verTexId && LocateVex(roadBean.endCross) == preVerTexId) {
                     p = p.tlink;
                     continue;
                 }
 
                 int loc = LocateVex(roadBean.endCross);
-                if (visited[loc] == 0 && d[loc] > d[k] + roadBean.roadLength) {//visited[loc] == 0 && d[loc] > d[k] + roadBean.roadLength Graph[loc].crossBusiness
-                    d[loc] = d[k] + roadBean.roadLength;//d[loc] = d[k] + roadBean.roadLength;
+                if (visited[loc] == 0 && d[loc] > d[k] + roadBean.roadLength) {
+                    d[loc] = d[k] + roadBean.roadLength;
                     int t = 0;
                     while (path[k][t] != -1) {
                         path[loc][t] = path[k][t];
@@ -1229,7 +1241,6 @@ public class ArrangeTheCarForEnd {
      *
      * @param carBean
      */
-
     private static void CheckThePreparingStartingRoad(CarBean carBean) {
 
         //当前车辆的map图
@@ -1267,6 +1278,7 @@ public class ArrangeTheCarForEnd {
 
 
         //遍历其他边
+
 
         for (int i = 0; i < roadBeanList.size(); i++) {
 
@@ -1306,15 +1318,11 @@ public class ArrangeTheCarForEnd {
             }
         }
 
-        //扫描一遍所有的道路  求出其中相对长度
-        //checkTheCrossBusiness();
     }
-
 
     /**
      * 检查边的状态 调度每一个等待状态的点时调整一次
      */
-
     private static void CheckTheRoadBusiness(CarBean carBean) {
 
         //当前车辆的map图
@@ -1339,8 +1347,7 @@ public class ArrangeTheCarForEnd {
                         int s2 = roadBean.roadLength - carBean1.s1 - 1;
                         int v2 = Math.min(roadBean.speedLimit, carBean.maxSpeed);
                         if (v2 - carBean.s1 <= 0) {//不能通过
-                            //TODO 此处应该有问题， 应该是true
-                            roadBean.visible = true;
+                            roadBean.visible = false;
                             isPass = true;
                         } else if (v2 - carBean.s1 > s2) {//直接标注道路不可使用  可以用一个循环次数来标记
                             //roadBean.visible = (i == carBeanQueues.length - 1) ? false : true;//TODO 状态改变
@@ -1408,49 +1415,6 @@ public class ArrangeTheCarForEnd {
 
             }
         }
-        //我需要设置每条交叉路口的拥堵情况
-        //checkTheCrossBusiness();
-    }
-
-    /**
-     * 设置每个交叉入口的拥堵情况
-     *
-     */
-/*    private static void checkTheCrossBusiness() {
-        for (int i = 0; i < Graph.length; i++) {
-            int AllCarSize = 0;
-            int CarRunningInTheCar = 0;
-            for (ArcBox q = Graph[i].firstin; q != null; q = q.hlink) {
-
-                int[] nums = FindTheWaitingCarInLane(q.roadBean);
-                if(nums.length!=2) throw new RuntimeException("长度数据异常");
-                AllCarSize += nums[0];
-                CarRunningInTheCar += nums[1];
-
-            }
-            Graph[i].crossBusiness = AllCarSize==0?0:CarRunningInTheCar / AllCarSize;
-        }
-    }*/
-
-    /**
-     * 计算道路上的等待车辆和总的车辆个数
-     * @param roadBean  需要统计的道路
-     * @return  返回数组  长度为2  AllCarSize  CarRunningInTheCar
-     */
-    public static int[] FindTheWaitingCarInLane(RoadBean roadBean) {
-
-        int AllCarSize = 0;
-
-        int CarRunningInTheCar = 0;
-        for (List<CarBean> carBeans : roadBean.carBeanQueues) {
-            AllCarSize += carBeans.size();
-            for (int j = carBeans.size() - 1; j >= 0; j--) {
-                CarBean carBean = carBeans.get(j);
-                if(carBean.isWaiting) CarRunningInTheCar++;
-                else break;
-            }
-        }
-        return new int[]{AllCarSize, CarRunningInTheCar};
     }
 
 
@@ -1492,7 +1456,6 @@ public class ArrangeTheCarForEnd {
     /**
      * 标志车辆现在的状态
      */
-
     private static void FlageTheWaitingCar() {
         //扫描道路中的每一条车道
         for (int i = 0; i < roadBeanList.size(); i++) {//总共的道路数
@@ -1560,4 +1523,3 @@ public class ArrangeTheCarForEnd {
     }
 
 }
-

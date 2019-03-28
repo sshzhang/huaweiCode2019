@@ -5,7 +5,7 @@ package com.huawei.Main;
 import com.huawei.beans.CarBean;
 import com.huawei.beans.CrossBean;
 import com.huawei.beans.RoadBean;
-import com.huawei.utils.ArrangeTheCarForEnd;
+import com.huawei.utils.ArrangeTheCarForEndOldVersion;
 import com.huawei.utils.ReaddingTheData;
 
 import java.util.Collections;
@@ -41,11 +41,12 @@ public class Main {
         Collections.sort(carBeanList);
 //        logger.info("start read input files");
 
-        ArrangeTheCarForEnd.ArrangeTheCar(crossBeanList, roadBeanList, carBeanList, answerPath);
+        ArrangeTheCarForEndOldVersion.ArrangeTheCar(crossBeanList, roadBeanList, carBeanList, answerPath);
 
 
 //        logger.info("Start write output file");
 
 //        logger.info("End...");
+
     }
 }

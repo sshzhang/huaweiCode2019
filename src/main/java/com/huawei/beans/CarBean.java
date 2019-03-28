@@ -16,7 +16,6 @@ public class CarBean implements Comparable<CarBean> {
     // true 表示在等待  false表示正常结束
     public boolean isWaiting;
 
-
     //true表示最终完成
     public boolean isFinish;
 
@@ -35,16 +34,12 @@ public class CarBean implements Comparable<CarBean> {
     //访问过得道路id
     public int[] visitedEdge;
 
-
     //已经设置过方向就不需要重新设置方向
     //此字段需要实时更新
     public boolean isSetDirection = false;
 
-
-
     //指向相应的方向数组索引 默认为0
-    public int index=0;
-
+    public int index = 0;
 
     public CarBean(int carId, int startBean, int endBean, int maxSpeed, int startTime, boolean isStart, int crossLength) {
         this.carId = carId;
@@ -56,8 +51,11 @@ public class CarBean implements Comparable<CarBean> {
         visitedEdge = new int[crossLength];
     }
 
+    //先按时间排序  再按id排序
     @Override
     public int compareTo(CarBean o) {
-        return this.carId - o.carId;
+
+        int order = this.startTime - o.startTime;
+        return order > 0 ? order : order == 0 ? this.carId- this.carId: order;
     }
 }
