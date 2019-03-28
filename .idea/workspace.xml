@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b651d308-2fcc-4256-a950-f9cf2efd0eb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEndOldVersion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/car.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/car.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/Main/ArrangeTheCarForEnd.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/CarBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/CarBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/RoadBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/beans/RoadBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/utils/BuildTheMapUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/utils/ReaddingTheData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/com/huawei/utils/ReaddingTheData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/cross.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/cross.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/huaweiCode2019/road.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/huaweiCode2019/road.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/car.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/car.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/cross.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/cross.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Resources/road.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Resources/road.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/beans/CarBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,13 +41,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="49" />
+          <entry key="java" value="50" />
           <entry key="txt" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="49" />
+          <entry key="JAVA" value="50" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -150,11 +135,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="1309" column="10" selection-start-line="1309" selection-start-column="10" selection-end-line="1309" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1232">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -362,7 +344,7 @@
     <property name="SearchEverywhereHistoryKey" value="HashMap&#9;PSI&#9;JAVA://java.util.HashMap&#10;ClassLoa&#9;PSI&#9;JAVA://com.sun.org.apache.bcel.internal.util.ClassLoader&#10;Queue&#9;FILE&#9;jar:///usr/lib/jdk/jdk1.8.0_181/src.zip!/java/util/Queue.java&#10;SEmaphore&#9;PSI&#9;JAVA://java.util.concurrent.Semaphore" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553751246452" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553760883594" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NKWPractice" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -494,12 +476,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552112368794</updated>
       <workItem from="1552112372626" duration="251503000" />
-      <workItem from="1553233649139" duration="23982000" />
+      <workItem from="1553233649139" duration="25186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="275485000" />
+    <option name="totallyTimeSpent" value="276689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -519,10 +501,10 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.25262576" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25262576" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.32984293" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32984293" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
@@ -585,16 +567,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEndOldVersion.java</url>
-          <line>152</line>
-          <properties />
-          <option name="timeStamp" value="315" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="path[LocateVex(verTexNodes, carBeanNotRunning.endBean)][0]" language="JAVA" />
@@ -941,11 +913,8 @@ System.out.println(&quot;i:&quot;+i);</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/huawei/utils/ArrangeTheCarForEnd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="1309" column="10" selection-start-line="1309" selection-start-column="10" selection-end-line="1309" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1232">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>

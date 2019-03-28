@@ -163,7 +163,7 @@ public class ArrangeTheCarForEnd {
             CarBean carBeanr = carBeanList.get(k);
             //车没有调度完成  限制当前最多存在500辆车
 
-            if (count >= 950) break;
+            if (count >= 980) break;
 
             if (!carBeanr.isFinish && !carBeanr.isStart) {
 
@@ -259,10 +259,12 @@ public class ArrangeTheCarForEnd {
                             continue;
                         }
                         CarBean peek = carBeanQueue.peek();
-                        //TODO 等待检验
+                        //如果没有在等待,调整下一个车道
                         if (!peek.isWaiting) {//下一个车道调度
-                            index += 1;
+                            index++;
                             continue;
+                        }else{//等待检验
+                            index = 0;
                         }
                         /**
                          * 运行等待的车辆分为三步
@@ -287,14 +289,11 @@ public class ArrangeTheCarForEnd {
                                 }
                             }
 
-                            //TODO 如果已经设置过方向  直接比较入口是否允许通行，如果可以的话再比较是否存在阻挡
-
-
-
                             if (nextRoadBean == null) throw new RuntimeException("内部数据格式异常");
                             //直行、左转、右转
                             //不存在到达终点的情况
                             if (peek.endBean == roadBean.endCross) throw new RuntimeException("数据格式异常");
+
 
                             //判断当前车的转弯方向
                             //roadBean.startCross---->roadBean.endCross---->nextRoadBean.endCross;
@@ -305,7 +304,11 @@ public class ArrangeTheCarForEnd {
                             if (direction == Constant.STRAIGHT) {
 
                                 if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
-                                    index++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
+                                    //++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
+
+                                    //index++;
+                                    //index = (index + 1) % roadBean.roadLength;
+                                    index = (index + 1) % roadBean.roadNums;
                                     continue;
                                 } else {
                                     break;
@@ -329,7 +332,10 @@ public class ArrangeTheCarForEnd {
                                 }
 
                                 if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
-                                    index++;
+                                    //index = (index + 1) % roadBean.roadLength;
+                                    //index++;
+
+                                    index = (index + 1) % roadBean.roadNums;
                                     continue;
                                 } else {
                                     break;
@@ -362,7 +368,9 @@ public class ArrangeTheCarForEnd {
                                     break;//调度不成功  直接调度下一个道路
                                 }
                                 if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoadBean)) {
-                                    index++;
+                                    // index++;
+                                    //index = (index + 1) % roadBean.roadLength;
+                                    index = (index + 1) % roadBean.roadNums;
                                     continue;
                                 } else {
                                     break;
@@ -429,7 +437,9 @@ public class ArrangeTheCarForEnd {
                                 if (isbreak) {
                                     break;
                                 } else {
-                                    index++;
+                                    //index++;
+                                    index = (index + 1) % roadBean.roadNums;
+                                    //index = (index + 1) % roadBean.roadLength;
                                     continue;
                                 }
                             } else {//当前车不是目的地  没设置过方向
@@ -495,7 +505,9 @@ public class ArrangeTheCarForEnd {
                                 if (direction == Constant.STRAIGHT) {
 
                                     if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
-                                        index++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
+                                        //index++;//能改变方向,可以调度下一个车道,否则直接到下一个道路
+                                       // index = (index + 1) % roadBean.roadLength;
+                                        index = (index + 1) % roadBean.roadNums;
                                         continue;
                                     } else {
                                         break;
@@ -518,7 +530,9 @@ public class ArrangeTheCarForEnd {
                                     }
 
                                     if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
-                                        index++;
+                                        //index++;
+                                        //index = (index + 1) % roadBean.roadLength;
+                                        index = (index + 1) % roadBean.roadNums;
                                         continue;
                                     } else {
                                         break;
@@ -555,7 +569,9 @@ public class ArrangeTheCarForEnd {
                                     }
                                     if (waitingCarChangeDirection(roadBean, carBeanQueue, peek, nextRoad)) {
 
-                                        index++;
+                                        //index++;
+                                        //index = (index + 1) % roadBean.roadLength;
+                                        index = (index + 1) % roadBean.roadNums;
                                         continue;
                                     } else {
                                         break;
@@ -1307,7 +1323,7 @@ public class ArrangeTheCarForEnd {
         }
 
         //扫描一遍所有的道路  求出其中相对长度
-        //checkTheCrossBusiness();
+//        checkTheCrossBusiness();
     }
 
 
@@ -1416,7 +1432,7 @@ public class ArrangeTheCarForEnd {
      * 设置每个交叉入口的拥堵情况
      *
      */
-/*    private static void checkTheCrossBusiness() {
+    /*private static void checkTheCrossBusiness() {
         for (int i = 0; i < Graph.length; i++) {
             int AllCarSize = 0;
             int CarRunningInTheCar = 0;
