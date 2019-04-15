@@ -1,4 +1,4 @@
-package com.huawei.beans;
+package com.huawei;
 
 public class CrossBean {
 
@@ -21,4 +21,20 @@ public class CrossBean {
         this.downRoadId = downRoadId;
         this.leftRoadId = leftRoadId;
     }
+
+/*    public static void main(String... args) {
+
+        List<String> strings = new ArrayList<>();
+
+        strings.add("1");
+        strings.add("2");
+
+
+        List<String> sm = new ArrayList<>(strings);
+        sm.add("3");
+
+        System.out.println(strings.size());
+
+
+    }*/
 }
