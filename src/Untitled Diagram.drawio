@@ -1,1 +1,173 @@
-<mxfile host="app.diagrams.net" modified="2021-01-22T06:48:23.600Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" version="14.2.6" etag="AgXe5zjPZPcddRCxngu4" type="github"><diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">7VhZc9MwEP41Hp5gfBQnecRp0wKhU2ihw6NiK7aI7DWynINfzyqWYzsOOYD0yDQv0a43K2m/b4/YcPrx/FKQNPoEAeWGbQZzwzk3bNuybQe/lGZRaLq9bqEIBQu0UaW4Zb+oVppam7OAZg1DCcAlS5tKH5KE+rKhI0LArGk2Bt7cNSUhbSlufcLb2nsWyEjfwu5U+ivKwqjc2XJ7xZOYlMb6JllEApjVVM6F4fQFgCxW8bxPuQpeGZf794t7Ppy4lx8+Zz/JV+/j3fW314WzwSE/WV1B0ET+X9d24XpKeK7jpe8qF2UABeRJQJUT03C8SMYclxYuf1ApFxpwkktAFQgZQQgJ4UOAVNuNIZHazFIyTYJ3CliURxz8SaEaMM71Hihp+y5KmRQwWWGnHKyAUMacjCj3iD8JlwftAweBjxJIqHIVIBn0XarDXVRab8/YagwyyIVPt9jpbJFEhHSbP7ewU+er8VQjd0khplIs0EBQTiSbNslMdE6EK7sKd1xo6A+ggdOiwZDEqcp6oFnySuJqBmKyhRsKl1nEJL1NyTJAMywnTb7UeYBX9UJOskyjuAPkw0CaUiHpfGtYy6euzu2yuGlxVlUKq0z/qFYlzswjAXHWAuI7Fs+XlPyXlHT3TMmyY+3MSU2Wkhh7p6j2dAMskTUTGI8zPNg6dVYb/j2b3rbYdA0tMu3G41nT7ZHI1DmMS9aT55L7hxbhcgyDNxK4CtUq5XkYIlnQXWI4g3btiiAe5dnudtHAWDFoQGLGVbyuKJ9SyXyyoakQzkLc99xHuKnYTB7ckiUhSm4l3S3JivX3iM2m02w2K7nebcwN3aZ7rG7TaWF6g+gV0NkmX+J7Yh3fsddA6D12y+/uU6SfdQl+8I5fVtPdLd/as0xr9phvHPw0CPT0p4DeXjPlyxhwHIbZpzYIlCes8cnL+ag9CYxykSwHAcjlyySwbRKwNzWhB50EykJYA/ULTQlDMM3hKc4B6//8z5zHngPKStGEgKuY2maRYSeGwfos5ljHwwDF6k1tUQqr993OxW8=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-01-22T07:22:09.351Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="nX_ktOq3W5UZbdZLp6Xz" version="14.2.6" type="github">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1184" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="H0thgkhad0gbrhlTef-n-0" value="&lt;font style=&quot;font-size: 14px&quot;&gt;cmdb&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="148" y="60" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-1" value="&lt;span style=&quot;font-size: 14px&quot;&gt;MDC平台&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="392.99" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-3" value="内存、重传、cpu、磁盘情况" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="512.99" y="60" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-4" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="510" y="200" as="sourcePoint" />
+            <mxPoint x="600" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-7" value="&lt;span style=&quot;font-size: 14px&quot;&gt;拉取cmdb中docker的ip&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="150" y="200" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-8" target="H0thgkhad0gbrhlTef-n-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-8" value="&lt;span style=&quot;font-size: 14px&quot;&gt;ip对应的内存、重传、cpu、磁盘等信息存入redis&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="350" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-9" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.653;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="488.99" y="350" as="sourcePoint" />
+            <mxPoint x="380" y="351.02" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-11" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="H0thgkhad0gbrhlTef-n-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="234" y="260" as="sourcePoint" />
+            <mxPoint x="190" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-12" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.443;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-0" target="H0thgkhad0gbrhlTef-n-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="222.99" y="120" as="sourcePoint" />
+            <mxPoint x="190" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-13" value="定时任务拉取最新的ip" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-12">
+          <mxGeometry x="-0.2148" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-16" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="100" as="sourcePoint" />
+            <mxPoint x="730" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-17" value="docker.php类" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-16">
+          <mxGeometry x="-0.26" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-19" value="&lt;span style=&quot;font-size: 14px&quot;&gt;线程run方法消费redis数据&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="290" y="480" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-21" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="410" as="sourcePoint" />
+            <mxPoint x="730" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-22" value="net_monitor.php类" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-21">
+          <mxGeometry x="-0.26" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-23" value="&lt;span style=&quot;font-size: 14px&quot;&gt;写入重传率数据&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="50" y="640" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-24" target="H0thgkhad0gbrhlTef-n-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-24" value="对top50的ip下发抓包命令" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="450" y="770" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-25" target="H0thgkhad0gbrhlTef-n-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-25" value="&lt;span style=&quot;font-size: 14px&quot;&gt;写入重传数数据&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="450" y="660" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-28" value="" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150.01" y="500" as="sourcePoint" />
+            <mxPoint x="140" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-29" value="写入jd_tcp_retrans_rate_yyyyMMdd表" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-28">
+          <mxGeometry x="0.3833" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-31" value="" style="endArrow=classic;html=1;exitX=0.712;exitY=1.033;exitDx=0;exitDy=0;entryX=0.424;entryY=-0.083;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-19" target="H0thgkhad0gbrhlTef-n-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="550" as="sourcePoint" />
+            <mxPoint x="150" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-32" value="写入jd_tcp_retrans_alarm_ops表" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-31">
+          <mxGeometry x="0.3833" y="-2" relative="1" as="geometry">
+            <mxPoint x="16.74" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-33" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="70" y="540" as="sourcePoint" />
+            <mxPoint x="70" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-35" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="620" as="sourcePoint" />
+            <mxPoint x="730" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-36" value="tmp_alarm_cron.php类" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-35">
+          <mxGeometry x="-0.26" relative="1" as="geometry">
+            <mxPoint y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-37" target="H0thgkhad0gbrhlTef-n-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-37" value="获取四元组&lt;br&gt;（原ip:port,目的ip, port）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="450" y="890" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-39" target="H0thgkhad0gbrhlTef-n-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-39" value="数据发送到tr.md.jd.com" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="450" y="990" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="H0thgkhad0gbrhlTef-n-41" target="H0thgkhad0gbrhlTef-n-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-47" value="写入DB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-46">
+          <mxGeometry x="-0.201" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-41" value="Consumer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="450" y="1090" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-43" value="" style="endArrow=classic;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="1080" as="sourcePoint" />
+            <mxPoint x="720" y="1260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-44" value="go语言" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="H0thgkhad0gbrhlTef-n-43">
+          <mxGeometry x="-0.26" relative="1" as="geometry">
+            <mxPoint y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H0thgkhad0gbrhlTef-n-45" value="jd_tcp_retrans_data_yyyyMMdd" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="443.75" y="1230" width="182.5" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
